@@ -8,6 +8,7 @@
   "dependencies": {
     "@shoutem/ui": "^0.21.3",
     "expo": "^20.0.0",
+    "native-base": "^2.3.1",
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-20.0.0.tar.gz",
     "react-native-elements": "^0.16.0",

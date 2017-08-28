@@ -4,6 +4,7 @@ import EntypoIcon from 'react-native-vector-icons/SimpleLineIcons';
 var {height, width} = Dimensions.get('window');
 import NativeTachyons from 'react-native-style-tachyons';
 import {styles as s} from "react-native-style-tachyons";
+import ClimbCard from './../components/ClimbCard';
 import { List, ListItem, Text, Card, Button, Avatar } from 'react-native-elements'
 const styles = StyleSheet.create({
 	third: {
@@ -36,32 +37,32 @@ const Screen = NativeTachyons.wrap(({ navigation }) => (
 			<View cls='flx-i flx-row'>
 				<Image
 					cls='w3 h3 br5'
-					source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg"}}
+					source={{uri: "http://www.greghaskins.com/public/images/Greg-Haskins-avatar-256-compressed.jpg"}}
 				/>
 				<View cls='ml1 flx-i flx-row h3'>
 					<View cls='flx-i jcc'>
 						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>entries</Text>
+						<Text cls='tc f5 fw1 grey'>Climbs</Text>
 					</View>
 					<View cls='flx-i jcc'>
 						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>entries</Text>
+						<Text cls='tc f5 fw1 grey'>Followers</Text>
 					</View>
 					<View cls='flx-i jcc'>
 						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>entries</Text>
+						<Text cls='tc f5 fw1 grey'>Following</Text>
 					</View>
 				</View>
 			</View>
 		</View>
 		<Text cls='pl3 pr3 pt2 b f4'>Jeffrey Young</Text>
-		<View cls='pt2 pb2 mt3 flx-i jcsa flx-row bt b--lightgrey'>
+		<View cls='pt3 pb3 mt3 flx-i jcsa flx-row bt b--lightgrey'>
 			<EntypoIcon
-				name='grid'
+				name='list'
 				size={18}
 			/>
 			<EntypoIcon
-				name='list'
+				name='grid'
 				size={18}
 			/>
 			<EntypoIcon
@@ -73,7 +74,13 @@ const Screen = NativeTachyons.wrap(({ navigation }) => (
 				size={18}
 			/>
 		</View>
-		
+		<View cls='flx-i pv3 bg-lightgrey'>
+			{
+				images.map((image, i) => (
+					<ClimbCard key={i} i={i}/>
+				))
+			}
+		</View>
 		{/*images*/}
 		<View cls='flx-i flx-row flx-wrap'>
 			{
