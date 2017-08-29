@@ -34,46 +34,48 @@ const Profile = NativeTachyons.wrap(({ navigation, posts, user }) => (
   <ScrollView cls='bg-lightgrey'>
 		
 		{/*header*/}
-		<View cls='pl3 pt3 pr3 bg-white'>
-			<View cls='flx-i flx-row'>
-				<Image
-					cls='w3 h3 br5'
-					source={{uri: user.picture}}
-				/>
-				<View cls='ml1 flx-i flx-row h3'>
-					<View cls='flx-i jcc'>
-						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>Climbs</Text>
-					</View>
-					<View cls='flx-i jcc'>
-						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>Followers</Text>
-					</View>
-					<View cls='flx-i jcc'>
-						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>Following</Text>
+		<View cls='bg-white'>
+			<View cls='pl3 pt3 pr3'>
+				<View cls='flx-i flx-row'>
+					<Image
+						cls='w3 h3 br5'
+						source={{uri: user.picture}}
+					/>
+					<View cls='ml1 flx-i flx-row h3'>
+						<View cls='flx-i jcc'>
+							<Text cls='tc f4 b'>184</Text>
+							<Text cls='tc f5 fw1 grey'>Climbs</Text>
+						</View>
+						<View cls='flx-i jcc'>
+							<Text cls='tc f4 b'>184</Text>
+							<Text cls='tc f5 fw1 grey'>Followers</Text>
+						</View>
+						<View cls='flx-i jcc'>
+							<Text cls='tc f4 b'>184</Text>
+							<Text cls='tc f5 fw1 grey'>Following</Text>
+						</View>
 					</View>
 				</View>
 			</View>
-		</View>
-		<Text cls='pl3 pr3 pt2 b f4'>{user.name.first} {user.name.last}</Text>
-		<View cls='pt3 pb3 mt3 flx-i jcsa flx-row bt b--lightgrey'>
-			<EntypoIcon
-				name='list'
-				size={18}
-			/>
-			<EntypoIcon
-				name='grid'
-				size={18}
-			/>
-			<EntypoIcon
-				name='clock'
-				size={18}
-			/>
-			<EntypoIcon
-				name='graph'
-				size={18}
-			/>
+			<Text cls='pl3 pr3 pt2 b f4'>{user.name.first} {user.name.last}</Text>
+			<View cls='pt3 pb3 mt3 flx-i jcsa flx-row bt b--lightgrey'>
+				<EntypoIcon
+					name='list'
+					size={18}
+				/>
+				<EntypoIcon
+					name='grid'
+					size={18}
+				/>
+				<EntypoIcon
+					name='clock'
+					size={18}
+				/>
+				<EntypoIcon
+					name='graph'
+					size={18}
+				/>
+			</View>
 		</View>
 		<View cls='flx-i pv3 bg-lightgrey'>
 			{

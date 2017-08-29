@@ -25,6 +25,10 @@ const Screen = NativeTachyons.wrap(({ navigation }) => (
 					</Picker>
 				</Item>
 				<Item inlineLabel>
+					<Label>Description</Label>
+					<Input />
+				</Item>
+				<Item inlineLabel>
 					<Label>Date</Label>
 					<Input />
 				</Item>
