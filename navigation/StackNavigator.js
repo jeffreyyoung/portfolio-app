@@ -6,8 +6,11 @@ import SettingsScreen from './../screens/SettingsScreen';
 import JournalEntriesScreen from './../screens/JournalEntriesScreen';
 import NewScreen from './../screens/NewScreen';
 import { StackNavigator } from 'react-navigation';
-
+import Colors from './../constants/Colors'
 function getStackNavigator(stackNavigatorSettings = {}) {
+	
+	stackNavigatorSettings = {navigationOptions: {headerTintColor: Colors.primary}, ...stackNavigatorSettings};
+	
 	return StackNavigator(
 		{
 			ActivityFeedScreen: {
@@ -21,15 +24,15 @@ function getStackNavigator(stackNavigatorSettings = {}) {
 				screen: JournalEntriesScreen,
 				path: '/JournalEntriesScreen',
 				navigationOptions: {
-					title: 'Journal'
+					title: 'Feed'
 				},
 			},
 			ProfileScreen: {
 				screen: ProfileScreen,
 				path: '/ProfileScreen',
-				navigationOptions: {
-					title: 'Profile'
-				},
+				navigationOptions: ({navigation}) => ({
+		      title: `${navigation.state.params.user.name.first} ${navigation.state.params.user.name.last}`,
+		    }),
 			},
 			NewScreen: {
 				screen: NewScreen,

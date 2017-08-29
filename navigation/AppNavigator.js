@@ -9,8 +9,9 @@ import NewScreen from './../screens/NewScreen';
 import SignInScreen from './../screens/SignInScreen';
 import { StackNavigator } from 'react-navigation';
 import TabNavigator from './TabNavigator';
+import Colors from './../constants/Colors'
 function getStackNavigator(stackNavigatorSettings = {}) {
-	stackNavigatorSettings = {mode:'modal', ...stackNavigatorSettings};
+	stackNavigatorSettings = {mode:'modal', navigationOptions: {headerTintColor:Colors.primary}, ...stackNavigatorSettings};
 	return StackNavigator(
 		{
 			TabNavigator: {
@@ -20,6 +21,7 @@ function getStackNavigator(stackNavigatorSettings = {}) {
 					title: 'Activites',
 					header: null,
 					gesturesEnabled: false,
+					headerTintColor:Colors.primary,
 				},
 				mode: 'modal'
 			},
@@ -30,6 +32,7 @@ function getStackNavigator(stackNavigatorSettings = {}) {
 					title: 'Sign In',
 					header: null,
 					gesturesEnabled: false,
+					headerTintColor:Colors.primary,
 				},
 			},
 			NewScreen: {
@@ -37,15 +40,18 @@ function getStackNavigator(stackNavigatorSettings = {}) {
 				path: '/NewScreen',
 				navigationOptions: ({navigation}) => ({
 					title: 'Log A Climb',
-					headerRight: (<Button title='Save' onPress={() => navigation.goBack()}/>),
-					headerLeft: (<Button title='Close' onPress={() => navigation.goBack()}/>)
+					headerTintColor:Colors.primary,
+					headerRight: (<Button title='Save' color={Colors.primary} onPress={() => navigation.goBack()}/>),
+					headerLeft: (<Button title='Close' color={Colors.primary} onPress={() => navigation.goBack()}/>)
 				}),
 			},
 			ScanQRCodeScreen: {
 				screen: ScanQRCodeScreen,
 				path: '/ScanQRCodeScreen',
+				headerTintColor:Colors.primary,
 				navigationOptions: ({navigation}) => ({
 					title: 'Scan QR Code',
+					headerTintColor:Colors.primary
 				}),
 			}
 		}, 

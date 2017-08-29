@@ -1,110 +1,17 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Image, View, Dimensions } from 'react-native';
-import EntypoIcon from 'react-native-vector-icons/SimpleLineIcons';
-var {height, width} = Dimensions.get('window');
+import { ScrollView } from 'react-native';
 import NativeTachyons from 'react-native-style-tachyons';
-import {styles as s} from "react-native-style-tachyons";
 import ClimbCard from './../components/ClimbCard';
-import { List, ListItem, Text, Card, Button, Avatar } from 'react-native-elements'
-const styles = StyleSheet.create({
-	third: {
-		width: width/3,
-		height: width/3
-	}
-});
-const list = [
-	{
-		title: 'Profile',
-		icon: 'face'
-	},
-	{
-		title: 'Appointments',
-		icon: 'av-timer'
-  },
-  {
-		title: 'Trips',
-		icon: 'flight-takeoff'
-  }
-]
-let images = [];
-for (let i = 0; i < 23; i++) { images.push(i)}
+import withPosts from './../hocs/withPosts';
 
-const Screen = NativeTachyons.wrap(({ navigation }) => (
-  <ScrollView cls='bg-white'>
-		
-		{/*header*/}
-		<View cls='pl3 pt3 pr3'>
-			<View cls='flx-i flx-row'>
-				<Image
-					cls='w3 h3 br5'
-					source={{uri: "http://www.greghaskins.com/public/images/Greg-Haskins-avatar-256-compressed.jpg"}}
-				/>
-				<View cls='ml1 flx-i flx-row h3'>
-					<View cls='flx-i jcc'>
-						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>Climbs</Text>
-					</View>
-					<View cls='flx-i jcc'>
-						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>Followers</Text>
-					</View>
-					<View cls='flx-i jcc'>
-						<Text cls='tc f4 b'>184</Text>
-						<Text cls='tc f5 fw1 grey'>Following</Text>
-					</View>
-				</View>
-			</View>
-		</View>
-		<Text cls='pl3 pr3 pt2 b f4'>Jeffrey Young</Text>
-		<View cls='pt3 pb3 mt3 flx-i jcsa flx-row bt b--lightgrey'>
-			<EntypoIcon
-				name='list'
-				size={18}
-			/>
-			<EntypoIcon
-				name='grid'
-				size={18}
-			/>
-			<EntypoIcon
-				name='clock'
-				size={18}
-			/>
-			<EntypoIcon
-				name='graph'
-				size={18}
-			/>
-		</View>
-		<View cls='flx-i pv3 bg-lightgrey'>
-			{
-				images.map((image, i) => (
-					<ClimbCard key={i} i={i}/>
-				))
-			}
-		</View>
-		{/*images*/}
-		<View cls='flx-i flx-row flx-wrap'>
-			{
-				images.map((image, i) => (
-					<Image
-						key={i}
-						style={{width: width/3, height: width/3}}
-						source={{uri: "https://s3.amazonaws.com/uifaces/faces/twitter/kfriedson/128.jpg"}}
-					/>
-				))
-			}
-		</View>
-		<List>
-			{
-				list.map((item, i) => (
-					<ListItem
-						key={i}
-						title={item.title}
-						leftIcon={{name: item.icon}}
-					/>
-				))
-			}
-		</List>
+const Screen = withPosts(NativeTachyons.wrap(({ navigation, posts }) => (
+  <ScrollView cls='bg-lightgrey pv3'>
+	{
+		posts.map((post, i) => (
+			<ClimbCard key={i} i={i} post={post} navigation={navigation}/>
+		))
+	}
   </ScrollView>
-))
+)))
 
 export default Screen;

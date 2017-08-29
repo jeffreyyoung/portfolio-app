@@ -1,3 +1,3 @@
 export default {
-	primary: 'rgb(51, 173, 122)'
+	primary: 'rgb(32, 131, 81)'
 }

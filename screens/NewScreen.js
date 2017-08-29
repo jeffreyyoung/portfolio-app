@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, View, TouchableOpacity } from 'react-native';
 import NativeTachyons from 'react-native-style-tachyons';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
+import Colors from './../constants/Colors'
 import { List, Picker, ListItem, Container, InputGroup, Header, Button, Text, Content, Form, Item, Input, Label } from 'native-base';
 //import QRCodeScanner from './../components/QRCodeScanner';
 const Screen = NativeTachyons.wrap(({ navigation }) => (
@@ -30,7 +31,7 @@ const Screen = NativeTachyons.wrap(({ navigation }) => (
 			</Form>
 			
 			
-			<Button onPress={() => navigation.navigate('ScanQRCodeScreen')} cls='mh2 mt4' block><Icon color='white' name='camera' /><Text> Scan QR Code</Text></Button>
+			<Button onPress={() => navigation.navigate('ScanQRCodeScreen')} cls='mh2 mt4' style={{backgroundColor: Colors.primary}} block><Icon color='white' name='camera' /><Text> Scan QR Code</Text></Button>
 			<Text cls='ma2 tc grey f6'>Or Enter Manually</Text>
 			<Form cls='bg-white'>
 				<Item inlineLabel>

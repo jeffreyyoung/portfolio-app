@@ -1,44 +1,46 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Image, View, Dimensions, Text } from 'react-native';
+import { ScrollView, StyleSheet, Image, View, Dimensions, Text, TouchableOpacity } from 'react-native';
 import EntypoIcon from 'react-native-vector-icons/SimpleLineIcons';
 import NativeTachyons from 'react-native-style-tachyons';
 
-export default  NativeTachyons.wrap(({i}) => (
+export default  NativeTachyons.wrap(({i, post, navigation}) => (
 	<View cls='flx-i bg-white mb3'>
-		<View cls='flx-i flx-row ph3 pt3'>
-			<Image
-				cls='w2 h2 br4'
-				source={{uri: "http://www.greghaskins.com/public/images/Greg-Haskins-avatar-256-compressed.jpg"}}
-			/>
-			<View cls='ml1 flx-i'>
-				<Text cls='f6'>Jeffrey Young</Text>
-				<Text cls='f6 grey'>Today at 9:40 AM</Text>
+		<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen', {'user': post.user})}>
+			<View cls='flx-i flx-row ph3 pt3'>
+				<Image
+					cls='w2 h2 br4'
+					source={{uri: post.user.picture}}
+				/>
+				<View cls='ml1 flx-i'>
+					<Text cls='f6'>{post.user.name.first} {post.user.name.last}</Text>
+					<Text cls='f6 grey'>Today at 9:40 AM</Text>
+				</View>
 			</View>
-		</View>
+		</TouchableOpacity>
 		<View cls='pa3 pt0'>
 			<View>
-				<Text cls='mt2 f4'>Omg so happy i finally finished the red v4</Text>
+				<Text cls='mt2 f4'>{post.text ? post.text : `v${post.level} at ${post.location}`}</Text>
 				<View cls='jcsb flx-row mt1'>
-					<Text cls='grey'>Momentum Lehi</Text><Text cls='grey ml3'>Red V4</Text><Text cls='grey ml3'>South Wall</Text>
+					<Text cls='grey'>{post.location}</Text><Text cls='grey ml3'>v{post.level}</Text>
 				</View>
 			</View>
 		</View>
-		{ !(i%3) ? <Image
+		{ post.picture ? <Image
 			cls='flx-i h4 bg-lightblue'
-			source={{uri: "https://scontent.fsnc1-2.fna.fbcdn.net/v/t31.0-8/19942594_1044707642330768_7656184179088378335_o.jpg?oh=5bbc206d3415278463d9a1817d841070&oe=5A1C1DF2"}}
+			source={{uri: post.picture}}
 		/> : null}
-		<View cls='flx-row jcsa pa3 bt b--darkgrey'>
+		<View cls='flx-row jcsa pa3 bt b--lightgrey'>
 			<View cls='flx-row'>
 				<EntypoIcon name='like' />
-				<Text> 2</Text>
+				<Text> {post.likeCount}</Text>
 			</View>
 			<View cls='flx-row'>
 				<EntypoIcon name='bubble' />
-				<Text> 2</Text>
+				<Text> {post.commentCount}</Text>
 			</View>
 			<View cls='flx-row'>
 				<EntypoIcon name='share-alt' />
-				<Text> 2</Text>
+				<Text> {post.shareCount}</Text>
 			</View>
 		</View>
 	</View>

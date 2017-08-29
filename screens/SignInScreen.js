@@ -9,7 +9,7 @@ export default NativeTachyons.wrap(class Screen extends React.Component {
 		const {navigation} = this.props;
 		return (
 			<View cls='bg-white pa3 flx-i aic jcc'>
-				<Text cls='b f2 tc'>Klimbz</Text>
+				<Text cls='b f1 tc mb3'>Klimbz</Text>
 				<Button block style={{ backgroundColor: '#3B5998' }}
 					onPress={() => navigation.navigate('TabNavigator')}
 				>

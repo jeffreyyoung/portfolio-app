@@ -1,0 +1,1 @@
+* merge AppNavigator and StackNavigator js files
