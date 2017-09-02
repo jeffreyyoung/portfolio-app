@@ -9,8 +9,9 @@ export default NativeTachyons.wrap(class Screen extends React.Component {
 		const {navigation} = this.props;
 		return (
 			<Image cls='bg-white pa3 flx-i aic jcc'
+				source={{uri: 'https://mindbodygreen-res.cloudinary.com/images/c_scale,w_770,q_80,f_auto,fl_lossy/crp/WomanClimbingRockAtSunsetOverOcean-850x400-1/10-reasons-try-rock-climbing.jpg'}}
 			>
-				<Text cls='b f1 tc mb3'>Klimbz</Text>
+				<Text cls='b f1 tc mb3' style={{backgroundColor: 'rgba(0,0,0,0)'}}>Klimbz</Text>
 				<Button block style={{ backgroundColor: '#3B5998' }}
 					onPress={() => navigation.navigate('TabNavigator')}
 				>

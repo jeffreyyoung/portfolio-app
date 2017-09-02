@@ -43,21 +43,21 @@ const Profile = NativeTachyons.wrap(({ navigation, posts, user }) => (
 					/>
 					<View cls='ml1 flx-i flx-row h3'>
 						<View cls='flx-i jcc'>
-							<Text cls='tc f4 b'>184</Text>
-							<Text cls='tc f5 fw1 grey'>Climbs</Text>
+							<Text cls='tc f5 b'>184</Text>
+							<Text cls='tc f6 fw1 grey'>Climbs</Text>
 						</View>
 						<View cls='flx-i jcc'>
-							<Text cls='tc f4 b'>184</Text>
-							<Text cls='tc f5 fw1 grey'>Followers</Text>
+							<Text cls='tc f5 b'>184</Text>
+							<Text cls='tc f6 fw1 grey'>Followers</Text>
 						</View>
 						<View cls='flx-i jcc'>
-							<Text cls='tc f4 b'>184</Text>
-							<Text cls='tc f5 fw1 grey'>Following</Text>
+							<Text cls='tc f5 b'>184</Text>
+							<Text cls='tc f6 fw1 grey'>Following</Text>
 						</View>
 					</View>
 				</View>
 			</View>
-			<Text cls='pl3 pr3 pt2 b f4'>{user.name.first} {user.name.last}</Text>
+			<Text cls='pl3 pr3 pt2 b f5'>{user.name.first} {user.name.last}</Text>
 			<View cls='pt3 pb3 mt3 flx-i jcsa flx-row bt b--lightgrey'>
 				<EntypoIcon
 					name='list'

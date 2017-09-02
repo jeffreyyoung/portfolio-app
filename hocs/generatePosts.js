@@ -63,7 +63,7 @@ function getText() {
 }
 
 function getPicture() {
-	if (getRandomInt(0,4) === 1) {
+	if (getRandomInt(0,2) === 1) {
 		return 'https://scontent.fsnc1-2.fna.fbcdn.net/v/t31.0-8/19942594_1044707642330768_7656184179088378335_o.jpg?oh=5bbc206d3415278463d9a1817d841070&oe=5A1C1DF2';
 	} else {
 		return null;
