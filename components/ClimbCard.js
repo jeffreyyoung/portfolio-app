@@ -2,8 +2,8 @@ import React from 'react';
 import { ScrollView, StyleSheet, Image, View, Dimensions, Text, TouchableOpacity } from 'react-native';
 import EntypoIcon from 'react-native-vector-icons/SimpleLineIcons';
 import NativeTachyons from 'react-native-style-tachyons';
-
-export default  NativeTachyons.wrap(({i, post, navigation}) => (
+import { observer } from 'mobx-react';
+export default  observer(NativeTachyons.wrap(({i, post, navigation}) => (
 	<View cls='flx-i bg-white mb3'>
 		<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen', {'user': post.user})}>
 			<View cls='flx-i flx-row ph3 pt3'>
@@ -30,10 +30,15 @@ export default  NativeTachyons.wrap(({i, post, navigation}) => (
 			source={{uri: post.picture}}
 		/> : null}
 		<View cls='flx-row jcsa pa3 bt b--lightgrey'>
-			<View cls='flx-row'>
-				<EntypoIcon name='like' />
-				<Text> {post.likeCount}</Text>
-			</View>
+			<TouchableOpacity onPress={() => {
+				post.likedByCurrentUser = !post.likedByCurrentUser
+				post.likeCount = post.likedByCurrentUser ? post.likeCount + 1 : post.likeCount - 1;
+			}}>
+				<View cls='flx-row'>
+					<EntypoIcon style={{color: post.likedByCurrentUser ? 'green' : 'black'}} name='like' />
+					<Text style={{color: post.likedByCurrentUser ? 'green' : 'black'}} > {post.likeCount}</Text>
+				</View>
+			</TouchableOpacity>
 			<View cls='flx-row'>
 				<EntypoIcon name='bubble' />
 				<Text> {post.commentCount}</Text>
@@ -44,4 +49,4 @@ export default  NativeTachyons.wrap(({i, post, navigation}) => (
 			</View>
 		</View>
 	</View>
-))
+)))

@@ -1,13 +1,13 @@
 import React from 'react';
-import {observer} from 'mobx-react';
 import { ScrollView, View, TouchableOpacity } from 'react-native';
 import NativeTachyons from 'react-native-style-tachyons';
 import Icon from 'react-native-vector-icons/SimpleLineIcons';
 import Colors from './../constants/Colors'
-import withStore from './../hocs/withStore';
+
+import { inject, observer } from 'mobx-react';
 import { List, Picker, ListItem, Container, InputGroup, Header, Button, Text, Content, Form, Item, Input, Label } from 'native-base';
 //import QRCodeScanner from './../components/QRCodeScanner';
-const Screen = NativeTachyons.wrap(({ navigation, store }) => (
+const Screen = NativeTachyons.wrap(({ navigation, newPostStore }) => (
 	<Container>
 		<Content>
 		<Form cls='bg-white mt4'>
@@ -16,8 +16,8 @@ const Screen = NativeTachyons.wrap(({ navigation, store }) => (
 					<Picker
 						iosHeader="Select one"
 						mode="dropdown"
-						selectedValue={store.newPost.activity}
-						onValueChange={(nextKey) => {store.newPost.activity = nextKey}}
+						selectedValue={newPostStore.activity}
+						onValueChange={(nextKey) => {newPostStore.activity = nextKey}}
 					>
 						<Item label="Momentum Gym Climb" value="key0" />
 						<Item label="Outdoor Top Rope" value="key1" />
@@ -28,11 +28,11 @@ const Screen = NativeTachyons.wrap(({ navigation, store }) => (
 				</Item>
 				<Item inlineLabel>
 					<Label>Description</Label>
-					<Input value={store.newPost.description} onChangeText={(nextText) => {store.newPost.description = nextText}}/>
+					<Input value={newPostStore.description} onChangeText={(nextText) => {newPostStore.description = nextText}}/>
 				</Item>
 				<Item inlineLabel>
 					<Label>Date</Label>
-					<Input value={store.newPost.date} onChangeText={(nextText) => {store.newPost.date = nextText}}/>
+					<Input value={newPostStore.date} onChangeText={(nextText) => {newPostStore.date = nextText}}/>
 				</Item>
 			</Form>
 			
@@ -45,8 +45,8 @@ const Screen = NativeTachyons.wrap(({ navigation, store }) => (
 					<Picker
 						iosHeader="Select one"
 						mode="dropdown"
-						selectedValue={store.newPost.type}
-						onValueChange={(nextKey) => {store.newPost.type = nextKey}}
+						selectedValue={newPostStore.type}
+						onValueChange={(nextKey) => {newPostStore.type = nextKey}}
 					>
 						<Item label="Bouldering" value="key0" />
 						<Item label="Lead" value="key1" />
@@ -55,11 +55,11 @@ const Screen = NativeTachyons.wrap(({ navigation, store }) => (
 				</Item>
 				<Item inlineLabel>
 					<Label>Boulder Problem ID</Label>
-					<Input value={store.newPost.problemId} onChangeText={(nextText) => {store.newPost.problemId = nextText}}/>
+					<Input value={newPostStore.problemId} onChangeText={(nextText) => {newPostStore.problemId = nextText}}/>
 				</Item>
 			</Form>
 		</Content>
 	</Container>
 ))
 
-export default withStore(observer(Screen));
+export default inject('newPostStore')((observer(Screen)));

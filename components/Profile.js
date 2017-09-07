@@ -1,5 +1,5 @@
 import React from 'react';
-import { ScrollView, StyleSheet, Image, View, Dimensions } from 'react-native';
+import { ScrollView, StyleSheet, Image, View, Dimensions, TouchableOpacity } from 'react-native';
 import EntypoIcon from 'react-native-vector-icons/SimpleLineIcons';
 var {height, width} = Dimensions.get('window');
 import NativeTachyons from 'react-native-style-tachyons';
@@ -57,9 +57,13 @@ const Profile = NativeTachyons.wrap(({ navigation, posts, user }) => (
 					</View>
 				</View>
 			</View>
-			<Text cls='pl3 pr3 pt2 b f5'>{user.name.first} {user.name.last}</Text>
+			<View cls='flx-i jcsb aic flx-row'>
+				<Text cls='pl3 pr3 pt2 b f5'>{user.name.first} {user.name.last}</Text>
+				<TouchableOpacity><Text cls='ml3 mr3 mt2 pa1 ph2 f6 ba br2 b--green green'>Following</Text></TouchableOpacity>
+			</View>
 			<View cls='pt3 pb3 mt3 flx-i jcsa flx-row bt b--lightgrey'>
 				<EntypoIcon
+					color='green'
 					name='list'
 					size={18}
 				/>

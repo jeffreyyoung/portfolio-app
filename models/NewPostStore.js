@@ -1,4 +1,4 @@
-import {observable} from "mobx";
+import {observable, extendObservable} from "mobx";
 
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -8,11 +8,15 @@ function getRandomInt(min, max) {
 
 
 class NewPost {
-	@observable date = 'Septermber 2, 2017'
-	@observable activity = 'key0'
-	@observable description = ''
-	@observable type = 'key0'
-	@observable problemId = ''
+	constructor(initialValues) {
+		extendObservable(this, Object.assign({
+			date: 'Septermber 2, 2017',
+			activity: 'key0',
+			description: '',
+			type: 'key0',
+			problemId: '',
+		}, initialValues));
+	}
 }
 
 

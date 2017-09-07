@@ -81,7 +81,8 @@ const posts = [...Array(20).keys()].map((i) => {
 		picture: getPicture(),
 		likeCount: getRandomInt(0, 5),
 		shareCount: getRandomInt(0,5),
-		commentCount: getRandomInt(0,15)
+		commentCount: getRandomInt(0,15),
+		likedByCurrentUser: false
 	}
 	return post;
 });

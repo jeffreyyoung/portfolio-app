@@ -1,31 +1,23 @@
-// import React from 'react';
-// import { StyleSheet, Text, View } from 'react-native';
-import MainStackNavigator from './navigation/TabNavigator';
-
-
+import React from 'react';
+import { Font } from 'expo';
+import { Provider } from 'mobx-react';
+import { StyleSheet } from 'react-native';
 import NativeTachyons from 'react-native-style-tachyons';
 import AppNavigator from './navigation/AppNavigator';
-
-// 
-// export default MainStackNavigator;
-
-import React from 'react';
-import {
-  StyleSheet,
-  StatusBar,
-  Text,
-  View,
-} from 'react-native';
-
-import { Font } from 'expo';
-
+import stores from './models/Stores'
 NativeTachyons.build({
 }, StyleSheet);
 
 console.disableYellowBox = true;
+
+const App = AppNavigator({initialRouteName:'SignInScreen'});
 //export default AppNavigator({initialRouteName:'NewScreen'});
 //export default AppNavigator({initialRouteName:'TabNavigator'});
-export default AppNavigator({initialRouteName:'SignInScreen'});
+export default () => (
+	<Provider {...stores}>
+		<App />
+	</Provider>
+)
 //export default AppNavigator({initialRouteName:'ScanQRCodeScreen'});
 // 
 // export default NativeTachyons.wrap(class App extends React.Component {
