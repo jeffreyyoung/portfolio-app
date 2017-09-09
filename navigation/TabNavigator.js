@@ -63,7 +63,7 @@ function getTabNavigator({appNavigation}) {
 	            {...props}
 	            jumpToIndex={index => {
 	                if (index === 1) {
-	                    appNavigation.navigate('NewScreen')
+	                    appNavigation.navigate('ScanQRCodeScreen')
 	                }
 	                else {
 	                    jumpToIndex(index)

@@ -12,21 +12,6 @@ const Screen = NativeTachyons.wrap(({ navigation, newPostStore }) => (
 		<Content>
 		<Form cls='bg-white mt4'>
 				<Item inlineLabel>
-					<Label>Activity</Label>
-					<Picker
-						iosHeader="Select one"
-						mode="dropdown"
-						selectedValue={newPostStore.activity}
-						onValueChange={(nextKey) => {newPostStore.activity = nextKey}}
-					>
-						<Item label="Momentum Gym Climb" value="key0" />
-						<Item label="Outdoor Top Rope" value="key1" />
-						<Item label="Outdoor Bouldering" value="key2" />
-						<Item label="Outdoor Lead" value="key3" />
-						<Item label="Outdoor Crag" value="key4" />
-					</Picker>
-				</Item>
-				<Item inlineLabel>
 					<Label>Description</Label>
 					<Input value={newPostStore.description} onChangeText={(nextText) => {newPostStore.description = nextText}}/>
 				</Item>
@@ -40,6 +25,18 @@ const Screen = NativeTachyons.wrap(({ navigation, newPostStore }) => (
 			<Button onPress={() => navigation.navigate('ScanQRCodeScreen')} cls='mh2 mt4' style={{backgroundColor: Colors.primary}} block><Icon color='white' name='camera' /><Text> Scan QR Code</Text></Button>
 			<Text cls='ma2 tc grey f6'>Or Enter Manually</Text>
 			<Form cls='bg-white'>
+			<Item inlineLabel>
+				<Label>Activity</Label>
+				<Picker
+					iosHeader="Select one"
+					mode="dropdown"
+					selectedValue={newPostStore.activity}
+					onValueChange={(nextKey) => {newPostStore.activity = nextKey}}
+				>
+					<Item label="Momentum Gym Climb" value="key0" />
+					<Item label="Outdoor Climb" value="key1" />
+				</Picker>
+			</Item>
 				<Item inlineLabel>
 					<Label>Type</Label>
 					<Picker
@@ -54,8 +51,16 @@ const Screen = NativeTachyons.wrap(({ navigation, newPostStore }) => (
 					</Picker>
 				</Item>
 				<Item inlineLabel>
-					<Label>Boulder Problem ID</Label>
-					<Input value={newPostStore.problemId} onChangeText={(nextText) => {newPostStore.problemId = nextText}}/>
+					<Label>Level</Label>
+					<Input value={newPostStore.level} onChangeText={(nextText) => {newPostStore.level = nextText}}/>
+				</Item>
+				<Item inlineLabel>
+					<Label>Color</Label>
+					<Input value={newPostStore.color} onChangeText={(nextText) => {newPostStore.color = nextText}}/>
+				</Item>
+				<Item inlineLabel>
+					<Label>Problem ID</Label>
+					<Input value={newPostStore.id} onChangeText={(nextText) => {newPostStore.id = nextText}}/>
 				</Item>
 			</Form>
 		</Content>

@@ -50,8 +50,9 @@ function getStackNavigator(stackNavigatorSettings = {}) {
 				path: '/ScanQRCodeScreen',
 				headerTintColor:Colors.primary,
 				navigationOptions: ({navigation}) => ({
-					title: 'Scan QR Code',
-					headerTintColor:Colors.primary
+					title: 'Scan Climb QR Code',
+					headerTintColor:Colors.primary,
+					headerLeft: (<Button title='Close' color={Colors.primary} onPress={() => navigation.goBack()}/>)
 				}),
 			}
 		}, 

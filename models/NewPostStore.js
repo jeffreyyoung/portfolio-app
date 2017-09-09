@@ -14,8 +14,34 @@ class NewPost {
 			activity: 'key0',
 			description: '',
 			type: 'key0',
-			problemId: '',
+			id: '',
+			level: '',
+			color: ''
 		}, initialValues));
+	}
+	
+	setAttributes(attributes) {
+		extendObservable(this, Object.assign(attributes));
+	}
+	
+	setId(id) {
+		this.id = id;
+	}
+	
+	setLevel(level) {
+		this.level = level;
+	}
+	
+	setColor(color) {
+		this.color = color;
+	}
+	
+	setActivity(activity) {
+		this.activity = activity;
+	}
+	
+	setType(type) {
+		this.type = type;
 	}
 }
 
