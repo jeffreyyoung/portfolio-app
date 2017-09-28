@@ -22,8 +22,8 @@ const Screen = NativeTachyons.wrap(({ navigation, newPostStore }) => (
 			</Form>
 			
 			
-			<Button onPress={() => navigation.navigate('ScanQRCodeScreen')} cls='mh2 mt4' style={{backgroundColor: Colors.primary}} block><Icon color='white' name='camera' /><Text> Scan QR Code</Text></Button>
-			<Text cls='ma2 tc grey f6'>Or Enter Manually</Text>
+			{/*<Button onPress={() => navigation.navigate('ScanQRCodeScreen')} cls='mh2 mt4' style={{backgroundColor: Colors.primary}} block><Icon color='white' name='camera' /><Text> Scan QR Code</Text></Button>
+			<Text cls='ma2 tc grey f6'>Or Enter Manually</Text>*/}
 			<Form cls='bg-white'>
 			<Item inlineLabel>
 				<Label>Activity</Label>

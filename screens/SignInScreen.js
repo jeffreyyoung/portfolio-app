@@ -3,8 +3,32 @@ import { ScrollView, Text, View, Image } from 'react-native';
 import NativeTachyons from 'react-native-style-tachyons';
 import { SocialIcon } from 'react-native-elements'
 import { Container, Header, Button, Icon, Fab } from 'native-base';
+
+import { AppLoading, Asset, Font } from 'expo';
+
+function cacheImages(images) {
+  return images.map(image => {
+    if (typeof image === 'string') {
+      return Image.prefetch(image);
+    } else {
+      return Asset.fromModule(image).downloadAsync();
+    }
+  });
+}
+
 export default NativeTachyons.wrap(class Screen extends React.Component {
-	
+	constructor(...args) {
+		super(...args);
+		cacheImages([
+			require('./../assets/images/andrea1.jpg'),
+			require('./../assets/images/andrea2.jpg'),
+			require('./../assets/images/andrea3.jpg'),
+			require('./../assets/images/andrea4.jpg'),
+			require('./../assets/images/andrea5.jpg'),
+			require('./../assets/images/jeff1.jpg'),
+			require('./../assets/images/jeff2.jpg'),
+		]);
+	}
 	render() {
 		const {navigation} = this.props;
 		return (

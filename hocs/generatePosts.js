@@ -62,9 +62,19 @@ function getText() {
 	}
 }
 
-function getPicture() {
-	if (getRandomInt(0,2) === 1) {
-		return 'https://scontent.fsnc1-2.fna.fbcdn.net/v/t31.0-8/19942594_1044707642330768_7656184179088378335_o.jpg?oh=5bbc206d3415278463d9a1817d841070&oe=5A1C1DF2';
+function getRandomElement(items) {
+	return items[Math.floor(Math.random()*items.length)]
+}
+
+function getPicture(user) {
+	const images = {
+		'Andrea':['andrea1','andrea2','andrea3','andrea4','andrea5'],
+		'Jeffrey':['jeff1', 'jeff2'],
+		'Brian':['jeff2'],
+	}
+	
+	if (getRandomInt(0,3) === 1 || getRandomInt(0,3) === 1) {
+		return getRandomElement(images[user.name.first])
 	} else {
 		return null;
 	}
@@ -78,12 +88,12 @@ const posts = [...Array(20).keys()].map((i) => {
 		level: getLevel(),
 		location: getLocation(),
 		text: getText(),
-		picture: getPicture(),
 		likeCount: getRandomInt(0, 5),
 		shareCount: getRandomInt(0,5),
 		commentCount: getRandomInt(0,15),
 		likedByCurrentUser: false
 	}
+	post.picture = getPicture(post.user)
 	return post;
 });
 

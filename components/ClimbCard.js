@@ -3,10 +3,33 @@ import { ScrollView, StyleSheet, Image, View, Dimensions, Text, TouchableOpacity
 import EntypoIcon from 'react-native-vector-icons/SimpleLineIcons';
 import NativeTachyons from 'react-native-style-tachyons';
 import { observer } from 'mobx-react';
-export default  observer(NativeTachyons.wrap(({i, post, navigation}) => (
-	<View cls='flx-i bg-white mb3'>
+
+//let andrea1 = require('../assets/icons/app-icon.png')
+// const images = {
+// 	'andrea1': require('./../assets/images/andrea1.JPG'),
+// 	'andrea2': require('./../assets/images/andrea2.JPG'),
+// 	'andrea3': require('./../assets/images/andrea3.JPG'),
+// 	'andrea4': require('./../assets/images/andrea4.JPG'),
+// 	'andrea5': require('./../assets/images/andrea5.JPG'),
+// 	'jeff1': require('./../assets/images/jeff1.JPG'),
+// 	'jeff2': require('./../assets/images/jeff2.JPG'),
+// }
+
+export default  observer(NativeTachyons.wrap(({i, post, navigation}) => {
+	let andrea1 = require('../assets/icons/app-icon.png')
+	const images = {
+		'andrea1': require('./../assets/images/andrea1.jpg'),
+		'andrea2': require('./../assets/images/andrea2.jpg'),
+		'andrea3': require('./../assets/images/andrea3.jpg'),
+		'andrea4': require('./../assets/images/andrea4.jpg'),
+		'andrea5': require('./../assets/images/andrea5.jpg'),
+		'jeff1': require('./../assets/images/jeff1.jpg'),
+		'jeff2': require('./../assets/images/jeff2.jpg'),
+	}
+	return (
+	<View cls='bg-white mb3'>
 		<TouchableOpacity onPress={() => navigation.navigate('ProfileScreen', {'user': post.user})}>
-			<View cls='flx-i flx-row ph3 pt3'>
+			<View cls='flx-row ph3 pt3'>
 				<Image
 					cls='w2 h2 br4'
 					source={{uri: post.user.picture}}
@@ -25,10 +48,7 @@ export default  observer(NativeTachyons.wrap(({i, post, navigation}) => (
 				</View>
 			</View>
 		</View>
-		{ post.picture ? <Image
-			cls='flx-i h4 bg-lightblue'
-			source={{uri: post.picture}}
-		/> : null}
+		{ post.picture ? <Image resizeMode='cover' style={{width:Dimensions.get('window').width, height:250}} source={images[post.picture]}/> : null}
 		<View cls='flx-row jcsa pa3 bt b--lightgrey'>
 			<TouchableOpacity onPress={() => {
 				post.likedByCurrentUser = !post.likedByCurrentUser
@@ -49,4 +69,4 @@ export default  observer(NativeTachyons.wrap(({i, post, navigation}) => (
 			</View>
 		</View>
 	</View>
-)))
+)}))

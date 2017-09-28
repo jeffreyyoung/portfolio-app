@@ -41,6 +41,7 @@ function getStackNavigator(stackNavigatorSettings = {}) {
 				navigationOptions: ({navigation}) => ({
 					title: 'Log A Climb',
 					headerTintColor:Colors.primary,
+					headerStyle:{ position: 'absolute', backgroundColor: 'transparent', zIndex: 100, top: 0, left: 0, right: 0 },
 					headerRight: (<Button title='Save' color={Colors.primary} onPress={() => navigation.goBack()}/>),
 					headerLeft: (<Button title='Close' color={Colors.primary} onPress={() => navigation.goBack()}/>)
 				}),

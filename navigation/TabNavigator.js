@@ -3,7 +3,6 @@ import StackNavigator from './StackNavigator';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import Colors from './../constants/Colors';
-
 function getTabNavigator({appNavigation}) {
 	return TabNavigator(
 	  {
